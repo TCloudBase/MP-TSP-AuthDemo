@@ -1,0 +1,57 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>云开发CloudBase | 第三方服务</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="shortcut icon" href="${URL}/res/logo.png">
+  <link rel="stylesheet" href="${URL}/res/no.css">
+  <script src="https://acc.cloudbase.vip/webbase/index.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    let CKEY = `${CKEY}`
+    let ENVID = `${ID}`
+  </script>
+  <script src="${URL}/js/no.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+  <div id="app" style="display: none;">
+    <p class="title">欢迎使用云开发CloudBase-第三方服务DEMO</p>
+    <p class="des">你目前需要前往微信开放平台创建平台型服务商，并填入如下信息</p>
+    <div class="content">
+      <el-card class="box-card">
+        <el-form ref="form" :model="form" label-width="80px">
+          <el-form-item label="授权发起页域名">
+            <el-input v-model="form.origin"></el-input>
+          </el-form-item>
+          <el-form-item label="授权事件接收URL">
+            <el-input v-model="form.TURL"></el-input>
+          </el-form-item>
+          <el-form-item label="消息校验Token">
+            <el-input v-model="form.token"></el-input>
+          </el-form-item>
+          <el-form-item label="消息加解密Key">
+            <el-input v-model="form.AES"></el-input>
+          </el-form-item>
+          <el-form-item label="消息与事件接收URL">
+            <el-input v-model="form.SURL"></el-input>
+          </el-form-item>
+          <el-form-item label="白名单IP地址列表">
+            <el-input v-model="form.ip"></el-input>
+          </el-form-item>
+          <el-form-item label="服务商APPID">
+            <el-input v-model="form.id"></el-input>
+          </el-form-item>
+          <el-form-item label="服务商APPSECRET">
+            <el-input v-model="form.key"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" :loading="submit_load" @click="submit">确认信息已正确设置｜提交</el-button>
+          </el-form-item>
+        </el-form>
+      </el-card>
+    </div>
+  </div>
+</body>
+
+</html>

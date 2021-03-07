@@ -1,0 +1,63 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin:0;
+    background-color: #f0f2f5;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+#app{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.title {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 900;
+  color: #409EFF;
+  padding: 0 20px;
+}
+.des {
+  font-size: 14px;
+  color: #909399;
+  text-align: center;
+  padding: 0 20px;
+}
+.content{
+  margin-top: 30px;
+  padding: 0 20px;
+  text-align: center;
+}
+.el-card{
+  max-width: 820px;
+  width: 100%;
+  margin: 0 auto;
+}
+.el-form{
+  width: 100%;
+}
+.el-form-item__label{
+  width: 150px !important;
+}
+.el-form-item__content{
+  margin-left: 150px !important;
+  text-align: left;
+}
+.vedio{
+  width: 100%;
+  height: 100%;
+  max-width: 820px;
+  max-height: 530px;
+  margin: 30px 0;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+@media only screen and (max-width: 570px) {
+
+  .el-form-item__label{
+    text-align: left !important;
+  }
+  .el-form-item__content{
+    margin-left: 0px !important;
+  }
+}

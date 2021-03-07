@@ -1,0 +1,80 @@
+{
+  "envId": "{{env.ENV_ID}}",
+  "version": "2.0",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "functionRoot": "./cloudfunctions",
+  "framework": {
+    "name": "wx_open_demo",
+    "plugins": {
+      "function": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {
+          "functionRootPath": "./cloudfunctions",
+          "functions": [{
+              "name": "call",
+              "installDependency":true,
+              "timeout":5,
+              "publicNet":"ENABLE",
+              "eip":"ENABLE"
+            },
+            {
+              "name": "component_server",
+              "installDependency":true,
+              "timeout":20,
+              "publicNet":"ENABLE",
+              "eip":"ENABLE"
+            },
+            {
+              "name": "web",
+              "installDependency":true,
+              "timeout":10,
+              "publicNet":"ENABLE",
+              "eip":"ENABLE"
+            }
+          ],
+          "servicePaths": {
+            "web": "/web",
+            "call":"/call"
+          }
+        }
+      },
+      "db": {
+        "use": "@cloudbase/framework-plugin-database",
+        "inputs": {
+          "collections": [
+            {
+              "collectionName": "wxid",
+              "aclTag": "ADMINONLY"
+            },
+            {
+              "collectionName": "mess",
+              "aclTag": "PRIVATE"
+            },
+            {
+              "collectionName": "mini",
+              "aclTag": "ADMINONLY"
+            }
+          ]
+        }
+      },
+      "client": {
+        "use": "@cloudbase/framework-plugin-website",
+        "inputs": {
+          "outputPath": "webviews",
+          "cloudPath": "/"
+        }
+      },
+      "auth": {
+        "use": "@cloudbase/framework-plugin-auth",
+        "inputs": {
+          "configs": [
+            {
+              "platform": "ANONYMOUS",
+              "status": "ENABLE"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

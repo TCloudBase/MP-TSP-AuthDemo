@@ -1,0 +1,54 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>云开发CloudBase | 第三方服务</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="shortcut icon" href="${URL}/res/logo.png">
+  <link rel="stylesheet" href="${URL}/res/main.css">
+  <script src="https://acc.cloudbase.vip/webbase/index.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    let ENVID = `${ID}`
+  </script>
+  <script src="${URL}/js/comserver.js" type="text/javascript" charset="utf-8"></script>
+  <script src="${URL}/js/index.js?01" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <div id="app" style="display: none;" v-loading.fullscreen.lock="fullscreenLoading">
+    <!-- 登录框 -->
+    <div v-show="!donelogin" class="login_model">
+      <div class="top_logo">
+        <img src="res/logo.png" />
+        <div>CloudBase TSP</div>
+      </div>
+      <div class="des_title">第三方服务平台示例</div>
+      <el-button type="primary" class="login_btn" :loading="login_load" @click="tologin">授权登录</el-button>
+    </div>
+    <!-- 主页 -->
+    <div v-show="donelogin" class="main_model">
+       <!-- 顶部栏 -->
+      <div class="main_top">
+        <h1>CloudBase TSP</h1>
+        <el-button type="danger" class="outlogin_btn" @click="outlogin">退出登录</el-button>
+      </div>
+      <!-- 平台内容 -->
+      <div class="main_content">
+        <!-- 基础信息展示 -->
+        <el-card class="content_left" shadow="never">
+          <div class="auth_lists">
+            <div class="auth_title">小程序：{{appid}}  已授权</div>
+            <div class="auth_item">
+              <div class="auth_item_title">最新授权时间：{{updatedue}}</div>
+            </div>
+            <div class="auth_item" v-for="(item, index) in func_list" :key="index">
+              <div class="auth_item_title">{{item.name}}</div>
+              <div class="auth_item_des">{{item.des}}</div>
+            </div>
+          </div>
+        </el-card>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
