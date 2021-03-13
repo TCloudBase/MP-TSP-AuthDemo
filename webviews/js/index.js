@@ -45,10 +45,12 @@ async function init() {
     if(window.get.auth_code!=null){
       location.href = location.origin + location.pathname;
     }
-    window.app.donelogin = true
-    window.app.func_list = authorizer_data.result.func_list
-    window.app.appid = authorizer_data.result.appid
-    window.app.updatedue = authorizer_data.result.updatedue
+    else {
+      window.app.donelogin = true
+      window.app.func_list = authorizer_data.result.func_list
+      window.app.appid = authorizer_data.result.appid
+      window.app.updatedue = authorizer_data.result.updatedue
+    }
   }
 }
 
