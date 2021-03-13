@@ -29,8 +29,8 @@ window.tcbWebBase.init({
  */
 async function init() {
   let authorizer_data = await getAuthorizer()
-  window.app.fullscreenLoading = false
   if (authorizer_data.msg != null) {
+    window.app.fullscreenLoading = false
     window.app.$notify.error({
       title: '服务登录异常，请重新操作登录！',
       message: authorizer_data.msg,
@@ -39,13 +39,14 @@ async function init() {
     outlogin()
   }
   else if(authorizer_data.no!=null){
-
+    window.app.fullscreenLoading = false
   }
   else {
     if(window.get.auth_code!=null){
       location.href = location.origin + location.pathname;
     }
     else {
+      window.app.fullscreenLoading = false
       window.app.donelogin = true
       window.app.func_list = authorizer_data.result.func_list
       window.app.appid = authorizer_data.result.appid
