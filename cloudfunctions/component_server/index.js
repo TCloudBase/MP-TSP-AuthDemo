@@ -4,7 +4,7 @@ exports.main = async (event) => {
   console.log(event)
   if (event.type != null) {
     if(event.type == 'preauth_url'){                        //获取预授权链接
-      return await api.getPreAuthUrl()
+      return await api.getPreAuthUrl(event.wx)
     }
     if(event.type == 'cancel_auth'){                        //取消授权状态
       return await api.cancelAuth()

@@ -2,24 +2,24 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>云开发CloudBase | 第三方服务</title>
+  <title>小程序云开发 | 第三方服务</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="shortcut icon" href="${URL}/res/logo.png">
+  <link rel="shortcut icon" href="${URL}/res/logo.svg">
   <link rel="stylesheet" href="${URL}/res/main.css">
   <script src="https://acc.cloudbase.vip/webbase/index.js" type="text/javascript" charset="utf-8"></script>
   <script>
     let ENVID = `${ID}`
   </script>
-  <script src="${URL}/js/comserver.js" type="text/javascript" charset="utf-8"></script>
-  <script src="${URL}/js/index.js?01" type="text/javascript" charset="utf-8"></script>
+  <script src="${URL}/js/comserver.js?02" type="text/javascript" charset="utf-8"></script>
+  <script src="${URL}/js/index.js?02" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
   <div id="app" style="display: none;" v-loading.fullscreen.lock="fullscreenLoading">
     <!-- 登录框 -->
     <div v-show="!donelogin" class="login_model">
       <div class="top_logo">
-        <img src="res/logo.png" />
-        <div>CloudBase TSP</div>
+        <img src="${URL}/res/logo.svg" />
+        <div>WeChat TSP</div>
       </div>
       <div class="des_title">第三方服务平台示例</div>
       <el-button type="primary" class="login_btn" :loading="login_load" @click="tologin">授权登录</el-button>
@@ -28,7 +28,7 @@
     <div v-show="donelogin" class="main_model">
        <!-- 顶部栏 -->
       <div class="main_top">
-        <h1>CloudBase TSP</h1>
+        <h1>WeChat TSP</h1>
         <el-button type="danger" class="outlogin_btn" @click="outlogin">退出登录</el-button>
       </div>
       <!-- 平台内容 -->

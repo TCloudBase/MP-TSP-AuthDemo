@@ -103,7 +103,7 @@ async function getComponentToken() {
 /**
  * 获取第三方平台预授权Url链接
  */
-async function getPreAuthUrl() {
+async function getPreAuthUrl(wx) {
   let configres = await api.initConfig()
   if (configres != false) {
     let component_appid = configres.component_appid
@@ -115,7 +115,11 @@ async function getPreAuthUrl() {
       let api_preauthcode_result = await api.api_create_preauthcode(api_res.access_token);
       if (api_preauthcode_result.indexOf('pre_auth_code') != -1) {
         let { pre_auth_code } = JSON.parse(api_preauthcode_result);
-        res.url = `https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid=${component_appid}&pre_auth_code=${pre_auth_code}&redirect_uri=${redirect_uri}`;
+        if(wx!=null){
+          res.url = `https://mp.weixin.qq.com/safe/bindcomponent?action=bindcomponent&no_scan=1&component_appid=${component_appid}&pre_auth_code=${pre_auth_code}&redirect_uri=${redirect_uri}&auth_type=2#wechat_redirect`
+        } else {
+          res.url = `https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid=${component_appid}&pre_auth_code=${pre_auth_code}&redirect_uri=${redirect_uri}`;
+        }
       }
       else {
         res.msg = 'wxcall failed!'
