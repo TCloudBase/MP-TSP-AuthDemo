@@ -1,7 +1,8 @@
 window.get = getQueryString();
 window.tcbWebBase.init({
   cloudbase: {
-    envid: ENVID
+    envid: window.ENVID,
+    region: window.REGION
   },
   data: {
     fullscreenLoading: false,
