@@ -1,6 +1,7 @@
 window.tcbWebBase.init({
   cloudbase: {
-    envid: ENVID
+    envid: window.ENVID,
+    region: window.REGION
   },
   data: {
     form: JSON.parse(CKEY),
