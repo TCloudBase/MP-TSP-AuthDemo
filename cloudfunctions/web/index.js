@@ -24,11 +24,12 @@ exports.main = async (event, context) => {
     });
     html = render(html,{
       URL:`https://${context.namespace}-${context.tencentcloud_appid}.tcloudbaseapp.com`,
-      ID:context.namespace
+      ID:context.namespace,
+      REGION:context.tencentcloud_region
     })
   }
   else {
-    let origin = `${context.namespace}-${context.tencentcloud_appid}.ap-shanghai.app.tcloudbase.com`
+    let origin = `${context.namespace}-${context.tencentcloud_appid}.${context.tencentcloud_region}.app.tcloudbase.com`
     let ip = await getip(`https://${origin}/call`)
     let key = {
       AES: randomString(43),
@@ -47,7 +48,8 @@ exports.main = async (event, context) => {
     html = render(html,{
       CKEY:JSON.stringify(key),
       URL:`https://${context.namespace}-${context.tencentcloud_appid}.tcloudbaseapp.com`,
-      ID:context.namespace
+      ID:context.namespace,
+      REGION:context.tencentcloud_region
     })
   }
   return {
